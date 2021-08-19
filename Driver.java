@@ -20,11 +20,9 @@ public class Driver {
         stack.pop();
         stack.pop();
 
-
         LinkedStack link = new LinkedStack();
 
         System.out.println("\nElements Pushed from LinkedStack: 1,7,3,4,9,2");
-        System.out.println("\nPopped elements from LinkedStack\n");
 
         link.push(1);
         link.push(7);
@@ -32,6 +30,12 @@ public class Driver {
         link.push(4);
         link.push(9);
         link.push(2);
+
+        System.out.println("\nRemove elements from Bottom Half\n");
+
+        link.removeBottomHalf();
+
+        System.out.println("\nPopped elements from the remaining stack\n");
 
         int val;
         val = link.pop();
@@ -69,7 +73,7 @@ class ArrayStack {
             arr[++top] = num;
 
         } else {
-            System.out.println("full stack");
+            System.out.println("Full Stack");
         }
     }
     public int pop(){
@@ -79,7 +83,7 @@ class ArrayStack {
             System.out.println(val);
             return val;
         } else {
-            System.out.println("empty stack");
+            System.out.println("Empty Stack");
             return -1;
         }
     }
@@ -119,6 +123,7 @@ class LinkedStack {
     }
 
     public int pop() {
+
         if(isEmpty()) {
             return -999;
         }
@@ -127,6 +132,18 @@ class LinkedStack {
         topNode = topNode.next;
         n--;
         return result;
+    }
 
+    public void removeBottomHalf(){
+        int half = n/2; // O(n/2)
+        for (int i = 0; i < half; i++){
+            System.out.println("Removed: " + pop());
+        }
     }
 }
+
+/* Time complexity of removeBottomHalf method is O(n) */
+
+
+
+
